@@ -3,7 +3,7 @@ export const getUserLocation = async (): Promise<[number, number]> => {
 		navigator.geolocation.getCurrentPosition(
 			({ coords }) => {
 				resolve([coords.longitude, coords.latitude]);
-				return [coords.longitude, coords.latitude];
+				return ([coords.longitude, coords.latitude]);
 			},
 			(err) => {
 				alert('Can"t get location');

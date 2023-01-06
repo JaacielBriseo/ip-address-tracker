@@ -1,21 +1,25 @@
 import { Map } from 'mapbox-gl';
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import { Loading } from '.';
+import { useAppSelector } from '../store';
 
 export const MapView = () => {
 	const mapContainer = useRef<HTMLDivElement>(null);
-	const mapRef = useRef<Map | null>(null);
-	const [lng, setLng] = useState(-70.9);
-	const [lat, setLat] = useState(42.35);
-	const [zoom, setZoom] = useState(9);
+	const { data, isLoading } = useAppSelector((state) => state.addressTracker);
+	useLayoutEffect(() => {
+		if (!isLoading) {
+			// eslint-disable-next-line
+			const map = new Map({
+				container: mapContainer.current!, // container ID
+				style: 'mapbox://styles/mapbox/dark-v10', // style URL
+				center: [data.location.lng, data.location.lat], // starting position [lng, lat]
+				zoom: 14, // starting zoom
+			});
+		}
+	}, [isLoading, data.location.lng, data.location.lat]);
 
-	useEffect(() => {
-		if (mapRef.current) return; // initialize map only once
-		mapRef.current = new Map({
-			container: mapContainer.current!,
-			style: 'mapbox://styles/mapbox/dark-v10',
-			center: [lng, lat],
-			zoom: zoom,
-		});
-	});
-	return <div ref={mapContainer} className='h-[400px]'></div>;
+	if (isLoading) {
+		return <Loading />;
+	}
+	return <div ref={mapContainer} className='h-screen w-screen'></div>;
 };
