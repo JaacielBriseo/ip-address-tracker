@@ -1,4 +1,5 @@
-import { Marker, Map } from 'mapbox-gl';
+//@ts-ignore
+import { Marker, Map } from '!mapbox-gl';
 import { useLayoutEffect, useRef } from 'react';
 import { useAppSelector } from '../store';
 

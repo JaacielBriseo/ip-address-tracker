@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { AddressTrackerApp } from './AddressTrackerApp';
 import './index.css';
-import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+//@ts-ignore
+import mapboxgl from '!mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_ACCESS_TOKEN!;
