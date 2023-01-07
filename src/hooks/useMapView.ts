@@ -1,5 +1,5 @@
 import { Marker, Map } from 'mapbox-gl';
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useAppSelector } from '../store';
 
 export const useMapView = () => {
@@ -20,6 +20,6 @@ export const useMapView = () => {
 				.setLngLat([data ? data.location.lng : 0, data ? data.location.lat : 0])
 				.addTo(map);
 		}
-	}, [isLoading, data && data.location.lng, data && data.location.lat]);
+	}, [isLoading, data]);
 	return mapContainer;
 };
