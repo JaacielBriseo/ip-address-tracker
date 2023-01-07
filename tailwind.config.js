@@ -10,6 +10,9 @@ module.exports = {
 			fontFamily: {
 				Rubik: ['Rubik', 'sans-serif'],
 			},
+			backgroundImage: {
+				Pattern: "url('/public/images/pattern-bg.png')",
+			},
 		},
 	},
 	plugins: [],

@@ -1,33 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AddressTracker } from '../../interfaces';
 
-const initialValues = {
-	data: {
-		ip: '',
-		location: {
-			country: '',
-			region: '',
-			city: '',
-			lat: 0,
-			lng: 0,
-			postalCode: '',
-			timezone: '',
-			geonameId: 0,
-		},
-		domains: ['', ''],
-		as: {
-			asn: 0,
-			name: '',
-			route: '',
-			domain: '',
-			type: '',
-		},
-		isp: '',
-	},
+type InitialStateSlice = { isLoading: boolean; data: AddressTracker | null };
+const initialState: InitialStateSlice = {
 	isLoading: true,
+	data: null,
 };
 export const addressTrackerSlice = createSlice({
 	name: 'addressTracker',
-	initialState: initialValues,
+	initialState,
 	reducers: {
 		setAddressTrackerData: (state, { payload }) => {
 			state.data = payload;

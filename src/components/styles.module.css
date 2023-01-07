@@ -1,0 +1,19 @@
+.cardInfo {
+	@apply bg-white w-10/12 h-72 flex flex-col justify-evenly text-center p-5 fixed top-40 z-10 rounded-lg shadow-lg 
+    lg:flex-row lg:items-center lg:text-start;
+}
+.title {
+	@apply font-medium text-white text-2xl;
+}
+.infoItemDiv {
+	@apply lg:border-r-2 lg:p-8;
+}
+.infoItemHeader {
+	@apply font-bold text-xs text-DarkGray uppercase lg:text-sm;
+}
+.infoItemSpan {
+	@apply font-medium text-lg text-black lg:text-2xl;
+}
+.ipAddressTracker {
+	@apply w-full h-[300px] bg-Pattern bg-no-repeat bg-cover bg-center flex flex-col items-center p-5 space-y-10;
+}
