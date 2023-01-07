@@ -1,6 +1,7 @@
+/* eslint import/no-webpack-loader-syntax: off */
+import { useLayoutEffect, useRef } from 'react';
 //@ts-ignore
 import { Marker, Map } from '!mapbox-gl';
-import { useLayoutEffect, useRef } from 'react';
 import { useAppSelector } from '../store';
 
 export const useMapView = () => {
